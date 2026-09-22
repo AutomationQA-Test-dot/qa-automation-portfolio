@@ -3,32 +3,38 @@ print("Программа проверит ваш пароль по трем у�
 print("1. Длина не менее 8 символов")
 print("2. Есть хотя бы одна цифра")
 print("3. Есть хоть одна заглавная буква")
-print("Приступим")
-print("Введите ваш пароль:")
-password = input()
+print("Для выхода введите 'quit'\n")
 
-lenght = False
-digit = False
-upper = False
+while True:
+    password = input("Введите ваш пароль: ")
 
-if len(password) >= 8:
-    lenght = True
+    if password.lower() == "quit":
+        print("Выход. До встречи.")
+        break
 
-for char in password:
-    if char.isdigit():
-        digit = True
+    if password.strip() == "":
+        print("Пароль пустой. Введите что-нибудь.\n")
+        continue
 
-for char in password:
-    if char.isupper():
-        upper = True            
+    length = len(password) >= 8
+    digit = False
+    upper = False
 
-if lenght and digit and upper:
-    print("Пароль надежный!!!")
-else:
-    print("Пароль не подходит по условиям. Проблемы:")
-    if not lenght:
-        print(" - Длина меньше 8 символов")
-    if not digit:
-        print(" - Нет ни одной цифры")
-    if not upper:
-        print(" - Нет ни одной заглавной буквы")
+    for char in password:
+        if char.isdigit():
+            digit = True
+        if char.isupper():
+            upper = True
+
+    if length and digit and upper:
+        print("Пароль надежный!!!")
+        break
+    else:
+        print("Пароль не подходит по условиям. Проблемы:")
+        if not length:
+            print(" - Длина меньше 8 символов")
+        if not digit:
+            print(" - Нет ни одной цифры")
+        if not upper:
+            print(" - Нет ни одной заглавной буквы")
+        print()
