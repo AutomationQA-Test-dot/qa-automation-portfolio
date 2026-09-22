@@ -13,6 +13,9 @@ elif operation == "-":
 elif operation == "*":
     print(first_num * second_num)
 elif operation == "/":
-    print(first_num / second_num)
+    if second_num == 0:
+        print("На ноль делить нельзя")
+    else:
+        print(first_num / second_num)
 else:
     print("Недопустимая операция")
