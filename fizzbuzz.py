@@ -1,15 +1,12 @@
-print("Приветствуем вас в игре 'FizzBuzz'")
-print("Введите число от 1 до 100:")
-num = int(input())
-print("Вы ввели:", num)
-if 1 <= num <= 100:
-    if num % 3 == 0 and num % 5 == 0:
-        print("FizzBuzz!!!")
-    elif num % 5 == 0:
-        print("Buzz")
-    elif num % 3 == 0:
-        print("Fizz")
+def fizzbuzz(n):
+    if n % 15 == 0:
+        return "FizzBuzz"
+    elif n % 3 == 0:
+        return "Fizz"
+    elif n % 5 == 0:
+        return "Buzz"
     else:
-        print(num)
-else:
-    print("Не корректное число")
+        return str(n)
+
+for i in range(1, 101):
+    print(fizzbuzz(i))
